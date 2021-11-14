@@ -1,0 +1,46 @@
+body{
+    margin-top:150px;
+}
+.welcoming{
+    text-align:center;
+    margin-bottom:36px;
+}
+.login{
+    border-radius:8px;
+    margin:0 35px;
+    padding:25px;
+    box-shadow: 3px 4px 15px rgb(143, 134, 134);
+}
+.amount_dash{
+    margin:0 25px;
+}
+.deposit{
+    background-color: purple;
+}
+.withdraw{
+    background-color: lightsalmon;
+}
+.Balace{
+    background-color: orange;
+}
+.status{
+    margin:0px 15px;
+    border-radius: 8px;
+    color:white;
+    padding:18px;
+    margin-bottom:15px;
+}
+#dash_board{
+    display: none;
+}
+.trangaction_box{
+    margin-top:35px;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+.trangaction{
+    border-radius: 7px;
+   box-shadow: 4px 5px 15px rgb(194, 189, 189);
+    padding:35px;
+    margin-bottom: 14px;
+}

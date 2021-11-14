@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pionner_bank</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div  id="login_area">
+        <div class="welcoming">
+            <h1>Wellcome To Pioneer Bank</h1>
+        </div>
+            <div class = "login">
+            <div>
+                <h3>Login</h3>
+               <input class="email form-control" type="email"placeholder="Email" > <br>
+               <input class= "form-control" type="password" placeholder="password"> <br>
+               <button id = "log_in" class= "btn btn-success">
+                   Login
+               </button>
+            </div>
+        </div>
+    </div>
+    <div id="dash_board">
+        <div class="row amount_dash">
+            <div class="col-md-4 ">
+                <div class="status deposit">
+                    <h5>Deposit</h5>
+                    <h2> $<span id="curent_deposit">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="status withdraw">
+                    <h5>Withdraw</h5>
+                    <h2>$ <span id= Withdraw_history> 00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="status Balace">
+                    <h5>Balace</h5>
+                    <h2>$ <span id = "curent_blance">1240</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row trangaction_box">
+            <div class="col-md-6">
+                <div class="enter_deposit trangaction">
+                    <h4>Deposit</h4>
+                    <input id = "add_amount" class="form-control" placeholder="$ amount you want to deposit" type="text"><br>
+                    <button id = "deposit_btn" class = "btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="enter_withdraw trangaction">
+                    <h4>Withdraw</h4>
+                    <input id="withdraw_amount" class="form-control" placeholder="$ amount you want to withdraw" type="text"> <br>
+                    <button id="with_btn" class = "btn btn-success">withdraw </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+   const logIn = document.getElementById('log_in').addEventListener('click', function(){
+    const loginArea = document.getElementById('login_area');
+        loginArea.style.display = 'none';
+     const dashBoard = document.getElementById('dash_board');
+        dashBoard.style.display = 'block';
+   })
+
+                         //deposit secton
+
+   const depositBtn = document.getElementById('deposit_btn').addEventListener('click',function(){
+     
+     const  addAmount = ammount ('add_amount');
+     const curentDeposit = creuntBl('curent_deposit');
+     const totaldeposit = addAmount + curentDeposit;
+     const  curentBlance = creuntBl("curent_blance");
+     const totalBlance = curentBlance +addAmount ;
+     document.getElementById('curent_deposit').innerText = totaldeposit;
+     document.getElementById("add_amount").value = "";
+     document.getElementById("curent_blance").innerText = totalBlance;
+     })
+
+                    // Withdraw section
+const withdrawSecton = document.getElementById("with_btn").addEventListener('click', function(){
+    const withdrawAmount = ammount ("withdraw_amount");
+    const withdrawHistory = creuntBl('Withdraw_history');
+    const  curentBlance = creuntBl("curent_blance");
+    const totalWithdraw = withdrawAmount + withdrawHistory;
+    const totalBlance = curentBlance - withdrawAmount;
+    document.getElementById('Withdraw_history').innerText = totalWithdraw;
+    document.getElementById("withdraw_amount").value = "";
+    document.getElementById('curent_blance').innerText = totalBlance;
+
+})
+
+
+
+
+   function ammount (seletor ){
+    const Amount =  document.getElementById(seletor).value;
+    const AmountN = parseFloat(Amount);
+    return AmountN;
+   }
+function creuntBl(Blance){
+    const Cblance = document.getElementById(Blance).innerText;
+    const CblanceN = parseFloat(Cblance);
+    return CblanceN;
+}
+
+</script>
+</body>
+</html>
